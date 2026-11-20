@@ -1,0 +1,8 @@
+Three dots. One finish line.
+
+Same start, same bowl, three learning rates. Too small barely moves, too big jumps right out. The learning rate scales every step.
+
+Day 2 of 20: the basic components of deep learning.
+Next: momentum
+
+#machinelearning #deeplearning #ai #learningrate #gradientdescent #neuralnetworks #datascience #mathanimation #learnai #stem
