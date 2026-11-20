@@ -4,10 +4,14 @@ Posts one Reel a day from `queue/` to Instagram, using GitHub Actions and
 Instagram's official API. Free, and runs with your laptop off.
 
 - `queue/NNN-name/video.mp4` + `caption.txt`: posted in number order, one per day
-  at 19:00 Tashkent time (change the `cron` line in `.github/workflows/post-daily.yml`).
+  at the time in `schedule.json`.
 - `posted.json`: what was posted, with links. After posting, the video file is
   removed from the queue to keep the repo small.
-- `add_to_queue.sh`: adds a video and pushes it.
+- `add_to_queue.sh <video.mp4> <caption.txt> [short-name] [cover.jpg]`: adds a video
+  (and optional Reel cover) and pushes it.
+- **`PLAN.md`**: every video with its posting date. Updated automatically.
+- The posting time is in `schedule.json`. A day's post goes out within 3 hours of
+  that time; if the window is missed, it moves to the next day.
 - The Meta token for this app type (Unified login) does not expire.
   If Meta ever revokes it, generate a new one and replace the `IG_ACCESS_TOKEN` secret.
 

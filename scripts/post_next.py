@@ -27,6 +27,9 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import plan  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE = ROOT / "queue"
 LOG = ROOT / "posted.json"
@@ -94,6 +97,9 @@ def main() -> None:
         if any(h.get("posted_at", "")[:10] == f"{now:%Y-%m-%d}" for h in history):
             log("Already posted today.")
             return
+        if now - slot > plan.WINDOW:
+            log(f"Today's posting window ({slot:%H:%M} UTC + 3 h) has passed; next post is tomorrow.")
+            return
         first_run_after_slot = now - slot < timedelta(minutes=30)
     else:
         first_run_after_slot = True
@@ -110,7 +116,9 @@ def main() -> None:
     caption = (item / "caption.txt").read_text(encoding="utf-8").strip()
     base = os.environ.get("PUBLIC_BASE_URL", "").rstrip("/")
     video_url = f"{base}/queue/{urllib.parse.quote(item.name)}/video.mp4"
-    log(f"Next up: {item.name}\nVideo URL: {video_url}\nCaption:\n{caption}\n")
+    cover = item / "cover.jpg"
+    extra = {"cover_url": f"{base}/queue/{urllib.parse.quote(item.name)}/cover.jpg"} if cover.exists() else {}
+    log(f"Next up: {item.name}\nVideo URL: {video_url}\nCover: {extra.get('cover_url', 'none')}\nCaption:\n{caption}\n")
 
     if os.environ.get("DRY_RUN"):
         log("DRY_RUN set: stopping before any upload.")
@@ -131,7 +139,7 @@ def main() -> None:
 
     container = call(
         "POST", f"{user_id}/media",
-        media_type="REELS", video_url=video_url, caption=caption, share_to_feed="true",
+        media_type="REELS", video_url=video_url, caption=caption, share_to_feed="true", **extra,
     )["id"]
 
     # Instagram downloads and processes the video before it can be published.
@@ -160,7 +168,9 @@ def main() -> None:
     LOG.write_text(json.dumps(history, indent=2) + "\n")
     # The video is on Instagram now; drop it so the repo and website stay small.
     (item / "video.mp4").unlink()
+    cover.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
     main()
+    plan.write()
