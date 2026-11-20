@@ -1,0 +1,8 @@
+Why does it keep zigzagging?
+
+Plain gradient descent bounces between the valley walls. Momentum carries part of the last step forward, so the bouncing cancels out and the progress down the valley adds up.
+
+Day 3 of 20: the basic components of deep learning.
+Next: overfitting
+
+#machinelearning #deeplearning #ai #momentum #optimization #gradientdescent #neuralnetworks #datascience #mathanimation #learnai
