@@ -13,6 +13,7 @@ Environment:
     PUBLIC_BASE_URL   e.g. https://yourname.github.io/insta-queue
     IG_API_BASE       default https://graph.facebook.com/v23.0
     DRY_RUN=1         show what would be posted, call nothing
+    FORCE=1           post now, ignoring schedule.json (the manual Run button)
 """
 from __future__ import annotations
 
@@ -23,12 +24,13 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE = ROOT / "queue"
 LOG = ROOT / "posted.json"
+SCHEDULE = ROOT / "schedule.json"
 API = os.environ.get("IG_API_BASE", "https://graph.facebook.com/v23.0").rstrip("/")
 
 
@@ -71,13 +73,36 @@ def next_item(posted: set[str]) -> Path | None:
     return None
 
 
+def todays_slot(now: datetime) -> datetime:
+    """Today's posting time in UTC, from schedule.json (editable without touching the workflow)."""
+    cfg = json.loads(SCHEDULE.read_text()) if SCHEDULE.exists() else {}
+    hh, mm = map(int, cfg.get("post_time_utc", "14:30").split(":"))
+    return now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+
+
 def main() -> None:
     history = json.loads(LOG.read_text()) if LOG.exists() else []
+    now = datetime.now(timezone.utc)
+    if os.environ.get("NOW_UTC"):  # for testing
+        now = datetime.fromisoformat(os.environ["NOW_UTC"])
+
+    if not os.environ.get("FORCE"):
+        slot = todays_slot(now)
+        if now < slot:
+            log(f"Not time yet: today's post is due at {slot:%H:%M} UTC.")
+            return
+        if any(h.get("posted_at", "")[:10] == f"{now:%Y-%m-%d}" for h in history):
+            log("Already posted today.")
+            return
+        first_run_after_slot = now - slot < timedelta(minutes=30)
+    else:
+        first_run_after_slot = True
+
     item = next_item({h["folder"] for h in history})
     if item is None:
         log("Queue is empty. Nothing to post today.")
-        if os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"):
-            # Still check the token daily, so a broken one fails the run (GitHub emails you).
+        if first_run_after_slot and os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"):
+            # Check the token once a day, so a broken one fails the run (GitHub emails you).
             me = call("GET", os.environ["IG_USER_ID"], fields="username")
             log(f"Token check OK: connected to @{me.get('username')}")
         return
