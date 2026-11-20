@@ -76,6 +76,10 @@ def main() -> None:
     item = next_item({h["folder"] for h in history})
     if item is None:
         log("Queue is empty. Nothing to post today.")
+        if os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"):
+            # Still check the token daily, so a broken one fails the run (GitHub emails you).
+            me = call("GET", os.environ["IG_USER_ID"], fields="username")
+            log(f"Token check OK: connected to @{me.get('username')}")
         return
 
     caption = (item / "caption.txt").read_text(encoding="utf-8").strip()
