@@ -50,10 +50,9 @@ def queued(history: list[dict]) -> list[Path]:
 
 
 def build(now: datetime | None = None) -> str:
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(TASHKENT)
     history = json.loads((ROOT / "posted.json").read_text()) if (ROOT / "posted.json").exists() else []
     hh, mm = post_time()
-    utc = slot_on(now.astimezone(TASHKENT).date()).astimezone(timezone.utc)
     rows = []
     for h in history:
         when = datetime.fromisoformat(h["posted_at"]).astimezone(TASHKENT)
@@ -68,8 +67,8 @@ def build(now: datetime | None = None) -> str:
     return "\n".join([
         "# Posting plan",
         "",
-        f"One Reel a day at **{hh:02d}:{mm:02d} Tashkent** ({utc:%H:%M} UTC). GitHub usually starts the job",
-        "within about 35 minutes of that time. Times below are Tashkent time.",
+        f"One Reel a day at **{hh:02d}:{mm:02d} Tashkent time**. It usually goes out within a few minutes;",
+        "if a day's post cannot go out within 3 hours, it moves to the next day. All times are Tashkent time.",
         "This file is updated automatically.",
         "",
         "| Video | Status | Date (Tashkent) | |",

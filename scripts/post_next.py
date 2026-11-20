@@ -79,9 +79,9 @@ def next_item(posted: set[str]) -> Path | None:
 
 def main() -> None:
     history = json.loads(LOG.read_text()) if LOG.exists() else []
-    now = datetime.now(timezone.utc)
-    if os.environ.get("NOW_UTC"):  # for testing
-        now = datetime.fromisoformat(os.environ["NOW_UTC"])
+    now = datetime.now(plan.TASHKENT)
+    if os.environ.get("NOW"):  # for testing, e.g. NOW=2026-11-21T20:07:00+05:00
+        now = datetime.fromisoformat(os.environ["NOW"])
 
     if not os.environ.get("FORCE"):
         today = now.astimezone(plan.TASHKENT).date()  # days follow the Tashkent calendar
@@ -158,7 +158,7 @@ def main() -> None:
         "folder": item.name,
         "media_id": media_id,
         "permalink": permalink,
-        "posted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "posted_at": datetime.now(plan.TASHKENT).isoformat(timespec="seconds"),
     })
     LOG.write_text(json.dumps(history, indent=2) + "\n")
     # The video is on Instagram now; drop it so the repo and website stay small.

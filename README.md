@@ -4,7 +4,7 @@ Posts one Reel a day from `queue/` to Instagram, using GitHub Actions and
 Instagram's official API. Free, and runs with your laptop off.
 
 - `queue/NNN-name/video.mp4` + `caption.txt`: posted in number order, one per day
-  at the time in `schedule.json`.
+  at the time in `schedule.json` (Tashkent time).
 - `posted.json`: what was posted, with links. After posting, the video file is
   removed from the queue to keep the repo small.
 - `add_to_queue.sh <video.mp4> <caption.txt> [short-name] [cover.jpg]`: adds a video
@@ -44,7 +44,7 @@ Replace `USERNAME` with your GitHub username in the links below.
 
 6. **Add the secret**: https://github.com/USERNAME/insta-queue/settings/secrets/actions
    - `IG_ACCESS_TOKEN` = the Meta token from step 5
-   The Instagram account ID is set in `.github/workflows/post-daily.yml` (`IG_USER_ID`).
+   The Instagram account ID is set in `.github/workflows/post.yml` (`IG_USER_ID`).
 
 7. **Test it**: https://github.com/USERNAME/insta-queue/actions →
    *Post next Reel* → **Run workflow**. In a few minutes the first Reel is live,
