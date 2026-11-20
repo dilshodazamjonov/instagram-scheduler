@@ -14,6 +14,8 @@ Environment:
     IG_API_BASE       default https://graph.facebook.com/v23.0
     DRY_RUN=1         show what would be posted, call nothing
     FORCE=1           post now, ignoring schedule.json (the manual Run button)
+
+The posting time in schedule.json is Tashkent time.
 """
 from __future__ import annotations
 
@@ -33,7 +35,6 @@ import plan  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE = ROOT / "queue"
 LOG = ROOT / "posted.json"
-SCHEDULE = ROOT / "schedule.json"
 API = os.environ.get("IG_API_BASE", "https://graph.facebook.com/v23.0").rstrip("/")
 
 
@@ -76,13 +77,6 @@ def next_item(posted: set[str]) -> Path | None:
     return None
 
 
-def todays_slot(now: datetime) -> datetime:
-    """Today's posting time in UTC, from schedule.json (editable without touching the workflow)."""
-    cfg = json.loads(SCHEDULE.read_text()) if SCHEDULE.exists() else {}
-    hh, mm = map(int, cfg.get("post_time_utc", "14:30").split(":"))
-    return now.replace(hour=hh, minute=mm, second=0, microsecond=0)
-
-
 def main() -> None:
     history = json.loads(LOG.read_text()) if LOG.exists() else []
     now = datetime.now(timezone.utc)
@@ -90,15 +84,16 @@ def main() -> None:
         now = datetime.fromisoformat(os.environ["NOW_UTC"])
 
     if not os.environ.get("FORCE"):
-        slot = todays_slot(now)
+        today = now.astimezone(plan.TASHKENT).date()  # days follow the Tashkent calendar
+        slot = plan.slot_on(today)
         if now < slot:
-            log(f"Not time yet: today's post is due at {slot:%H:%M} UTC.")
+            log(f"Not time yet: today's post is due at {slot:%H:%M} Tashkent.")
             return
-        if any(h.get("posted_at", "")[:10] == f"{now:%Y-%m-%d}" for h in history):
-            log("Already posted today.")
+        if plan.posted_on(today, history):
+            log("Already posted today (Tashkent date).")
             return
         if now - slot > plan.WINDOW:
-            log(f"Today's posting window ({slot:%H:%M} UTC + 3 h) has passed; next post is tomorrow.")
+            log(f"Today's posting window ({slot:%H:%M} Tashkent + 3 h) has passed; next post is tomorrow.")
             return
         first_run_after_slot = now - slot < timedelta(minutes=30)
     else:

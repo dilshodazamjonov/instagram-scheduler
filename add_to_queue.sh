@@ -16,6 +16,16 @@ chars=$(wc -m < "$caption")
 tags=$(grep -o '#[[:alnum:]_]*' "$caption" | wc -l)
 (( chars <= 2200 )) || { echo "Caption is $chars characters; Instagram allows 2,200." >&2; exit 1; }
 (( tags <= 30 )) || { echo "Caption has $tags hashtags; Instagram allows 30." >&2; exit 1; }
+# No emojis in captions (house style): reject any emoji or emoji modifier.
+python3 - "$caption" <<'PY' || exit 1
+import re, sys
+text = open(sys.argv[1], encoding="utf-8").read()
+emoji = re.compile("[\U0001F000-\U0001FAFF\U00002600-\U000027BF\U00002B00-\U00002BFF"
+                   "\U00002300-\U000023FF\uFE0F\u200D\u3030\u303D\u3297\u3299]")
+found = sorted(set(emoji.findall(text)))
+if found:
+    sys.exit(f"Caption contains emojis {' '.join(found)}; remove them first.")
+PY
 
 mkdir -p queue
 last=$(find queue -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | tail -1 | cut -c1-3)

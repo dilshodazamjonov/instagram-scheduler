@@ -10,8 +10,9 @@ Instagram's official API. Free, and runs with your laptop off.
 - `add_to_queue.sh <video.mp4> <caption.txt> [short-name] [cover.jpg]`: adds a video
   (and optional Reel cover) and pushes it.
 - **`PLAN.md`**: every video with its posting date. Updated automatically.
-- The posting time is in `schedule.json`. A day's post goes out within 3 hours of
-  that time; if the window is missed, it moves to the next day.
+- The posting time is in `schedule.json`, in **Tashkent time**. A day's post goes out
+  within 3 hours of that time; if the window is missed, it moves to the next day.
+- Captions must not contain emojis; `add_to_queue.sh` refuses them.
 - The Meta token for this app type (Unified login) does not expire.
   If Meta ever revokes it, generate a new one and replace the `IG_ACCESS_TOKEN` secret.
 
