@@ -1,0 +1,7 @@
+Every AI learns the same way: by walking downhill.
+
+Gradient descent, explained in 90 seconds. Measure the slope, take a step, repeat.
+
+Next: backpropagation
+
+#machinelearning #deeplearning #ai #gradientdescent #neuralnetworks #math #datascience #learnai #mathanimation #stem
