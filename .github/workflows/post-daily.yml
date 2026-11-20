@@ -3,7 +3,7 @@ name: Post next Reel
 on:
   schedule:
     # Checks twice an hour; scripts/post_next.py posts once a day at the time
-    # set in schedule.json. Change the time there, not here.
+    # set in schedule.json. Change the time there, not here. Times are UTC.
     - cron: "7,37 * * * *"
   workflow_dispatch: {} # "Run workflow" button: posts the next video right away
 
