@@ -14,3 +14,4 @@ This file is updated automatically.
 | 006-day06-weights-bias | queued | Tue 24 Nov 2026, 20:00 | with cover |
 | 007-day07-activation-relu | queued | Wed 25 Nov 2026, 20:00 | with cover |
 | 008-day08-hidden-layers | queued | Thu 26 Nov 2026, 20:00 | with cover |
+| 009-day09-forward-pass | queued | Fri 27 Nov 2026, 20:00 | with cover |

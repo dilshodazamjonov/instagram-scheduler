@@ -1,0 +1,8 @@
+Follow one example through.
+
+Inputs 1 and 0 go in, the hidden neurons give 1 and 0, and the output neuron turns that into a raw score of 1. Inputs in, layer by layer, one score out: the forward pass.
+
+Day 9 of 20: the basic components of deep learning.
+Next: logits and sigmoid
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #forwardpass #deeplearningbasics
