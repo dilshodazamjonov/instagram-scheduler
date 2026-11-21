@@ -16,6 +16,16 @@ Instagram's official API. Free, and runs with your laptop off.
 - The Meta token for this app type (Unified login) does not expire.
   If Meta ever revokes it, generate a new one and replace the `IG_ACCESS_TOKEN` secret.
 
+## How posting is triggered
+
+- **Main trigger:** a cron-job.org job ("Post next Reel") calls this workflow once a day
+  at **20:02 Tashkent** (GitHub API `workflow_dispatch`, using a token that can only start Actions here).
+- **Backup:** GitHub's own timer runs the workflow at **20:20 and 20:45 Tashkent**.
+- Every run checks schedule.json and posted.json, so extra runs never post twice.
+- To change the posting time: edit `schedule.json`, the cron-job.org job time, and the
+  backup `cron` line in `.github/workflows/post.yml` (written in UTC, 5 hours behind Tashkent).
+- The cron-job.org token expires on **19 Nov 2027**; replace it in the job's Authorization header.
+
 ## One-time setup (done by hand, in this order)
 
 Replace `USERNAME` with your GitHub username in the links below.
