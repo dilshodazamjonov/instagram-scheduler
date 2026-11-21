@@ -1,0 +1,8 @@
+No straight line can do this.
+
+Yes when exactly one switch is on: no single line can split those four points. Two hidden neurons, one for each way the answer can be yes, solve it.
+
+Day 8 of 20: the basic components of deep learning.
+Next: the forward pass
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #xor #hiddenlayers
