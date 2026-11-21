@@ -1,8 +1,0 @@
-100 layers, one straight line?
-
-Layers that only scale and shift collapse into a single scale and shift. Put a ReLU between them and the graph can bend. That bend is what lets a network fit curves.
-
-Day 5 of 20: the basic components of deep learning.
-Next: the chain rule
-
-#machinelearning #deeplearning #ai #relu #activationfunctions #neuralnetworks #datascience #mathanimation #learnai #stem

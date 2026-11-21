@@ -1,8 +1,0 @@
-The perfect fit loses.
-
-A curve that hits every training point can still miss the new ones badly. What counts is how well a model does on data it has never seen.
-
-Day 4 of 20: the basic components of deep learning.
-Next: activation functions
-
-#machinelearning #deeplearning #ai #overfitting #datascience #statistics #neuralnetworks #mathanimation #learnai #stem
