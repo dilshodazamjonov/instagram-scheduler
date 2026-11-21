@@ -1,0 +1,8 @@
+From score to chance.
+
+Raw scores, called logits, can be any number. The sigmoid squashes them into a chance between 0 and 1: a score of 1 becomes about 73 percent.
+
+Day 10 of 20: the basic components of deep learning.
+Next: cross-entropy loss
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #sigmoid #logits
