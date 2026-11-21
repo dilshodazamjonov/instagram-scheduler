@@ -1,0 +1,8 @@
+One step smarter.
+
+Backprop finds the gradient for one weight, -0.27, and gradient descent with a learning rate of 0.5 nudges it from 2 to 2.13. The loss drops from 0.31 to 0.28.
+
+Day 12 of 20: the basic components of deep learning.
+Next: batches and epochs
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #backpropagation #gradientdescent

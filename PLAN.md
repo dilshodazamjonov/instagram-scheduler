@@ -17,3 +17,4 @@ This file is updated automatically.
 | 009-day09-forward-pass | queued | Fri 27 Nov 2026, 20:00 | with cover |
 | 010-day10-logits-sigmoid | queued | Sat 28 Nov 2026, 20:00 | with cover |
 | 011-day11-cross-entropy | queued | Sun 29 Nov 2026, 20:00 | with cover |
+| 012-day12-training-step | queued | Mon 30 Nov 2026, 20:00 | with cover |
