@@ -1,0 +1,8 @@
+Two switches, one table.
+
+We are teaching a network a small puzzle: answer yes when exactly one of two switches is on. Off becomes 0, on becomes 1, and the four possible settings stack into a tensor.
+
+Day 5 of 20: the basic components of deep learning.
+Next: weights and bias
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #tensors #xor

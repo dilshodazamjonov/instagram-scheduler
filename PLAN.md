@@ -10,3 +10,4 @@ This file is updated automatically.
 | 002-day02-learning-rate | posted | Fri 20 Nov 2026, 23:36 | [open](https://www.instagram.com/reel/Df-T-F0Dm9W/) |
 | 003-day03-backpropagation | queued | Sat 21 Nov 2026, 20:00 | with cover |
 | 004-day04-chain-rule | queued | Sun 22 Nov 2026, 20:00 | with cover |
+| 005-day05-inputs-tensors | queued | Mon 23 Nov 2026, 20:00 | with cover |
