@@ -1,0 +1,8 @@
+How a tiny change gets bigger.
+
+Nudge the input by one: the first box doubles it, the next one triples it, and the output moves by six. To follow a change down a chain, multiply the slopes along the path. That is where yesterday's 4 came from.
+
+Day 4 of 20: the basic components of deep learning.
+Next: inputs and tensors
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #chainrule #calculus
