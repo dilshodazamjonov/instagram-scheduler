@@ -1,0 +1,8 @@
+Practice, check, final exam.
+
+Split 200 readings into 140 to train on, 30 to check progress, and 30 locked away for the final test, so the network cannot just memorize its way to a good grade.
+
+Day 15 of 20: the basic components of deep learning.
+Next: the training loop
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #trainingdata #validation
