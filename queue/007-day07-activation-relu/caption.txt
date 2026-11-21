@@ -1,0 +1,8 @@
+One bend changes everything.
+
+Stack layers with no activation and you still get one straight line. ReLU keeps positive scores and turns negative ones into zero, and that corner is what lets a network bend.
+
+Day 7 of 20: the basic components of deep learning.
+Next: hidden layers
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #relu #activationfunction

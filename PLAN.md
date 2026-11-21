@@ -12,3 +12,4 @@ This file is updated automatically.
 | 004-day04-chain-rule | queued | Sun 22 Nov 2026, 20:00 | with cover |
 | 005-day05-inputs-tensors | queued | Mon 23 Nov 2026, 20:00 | with cover |
 | 006-day06-weights-bias | queued | Tue 24 Nov 2026, 20:00 | with cover |
+| 007-day07-activation-relu | queued | Wed 25 Nov 2026, 20:00 | with cover |
