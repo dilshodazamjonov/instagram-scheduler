@@ -1,0 +1,8 @@
+Why not start at zero?
+
+All zeros: nothing learns. All the same: the neurons stay identical twins. Small random numbers: each neuron starts different, and the loss falls from 0.71 to 0.02.
+
+Day 14 of 20: the basic components of deep learning.
+Next: training, validation and test sets
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #weightinitialization #optimization
