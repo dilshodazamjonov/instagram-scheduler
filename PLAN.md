@@ -18,3 +18,4 @@ This file is updated automatically.
 | 010-day10-logits-sigmoid | queued | Sat 28 Nov 2026, 20:00 | with cover |
 | 011-day11-cross-entropy | queued | Sun 29 Nov 2026, 20:00 | with cover |
 | 012-day12-training-step | queued | Mon 30 Nov 2026, 20:00 | with cover |
+| 013-day13-batches-epochs | queued | Tue 01 Dec 2026, 20:00 | with cover |

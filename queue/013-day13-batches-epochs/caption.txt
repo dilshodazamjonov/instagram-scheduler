@@ -1,0 +1,8 @@
+200 readings, 20 at a time.
+
+Real sensors are noisy, so we record 200 readings. Each batch of 20 gives one update, called a step, and 10 steps make an epoch.
+
+Day 13 of 20: the basic components of deep learning.
+Next: weight initialization
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #sgd #batchsize
