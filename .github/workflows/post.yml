@@ -2,9 +2,9 @@ name: Post next Reel
 
 on:
   schedule:
-    # Wakes up twice an hour; scripts/post_next.py posts once a day at the
-    # Tashkent time set in schedule.json. Change the time there, not here.
-    - cron: "7,37 * * * *"
+    # Backup only: cron-job.org is the main trigger (20:02 Tashkent).
+    # These backup checks run at 20:20 and 20:45 Tashkent time.
+    - cron: "20,45 15 * * *"
   workflow_dispatch:
     inputs:
       force:
