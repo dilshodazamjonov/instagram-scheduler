@@ -1,0 +1,8 @@
+How wrong was that?
+
+Cross-entropy takes minus the log of the chance given to the right answer. 73 percent costs 0.31, but 1 percent costs 4.6: being sure and wrong is punished hard.
+
+Day 11 of 20: the basic components of deep learning.
+Next: one training step
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #crossentropy #lossfunction

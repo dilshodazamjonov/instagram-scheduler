@@ -16,3 +16,4 @@ This file is updated automatically.
 | 008-day08-hidden-layers | queued | Thu 26 Nov 2026, 20:00 | with cover |
 | 009-day09-forward-pass | queued | Fri 27 Nov 2026, 20:00 | with cover |
 | 010-day10-logits-sigmoid | queued | Sat 28 Nov 2026, 20:00 | with cover |
+| 011-day11-cross-entropy | queued | Sun 29 Nov 2026, 20:00 | with cover |
