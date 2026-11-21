@@ -1,0 +1,8 @@
+Where did the error come from?
+
+One weight, two paths: one pushes the error up, the other pulls it down. Backprop works backward from the error and adds the pushes, 4 minus 2, so the gradient is 2.
+
+Day 3 of 20: the basic components of deep learning.
+Next: the chain rule
+
+#machinelearning #deeplearning #ai #backpropagation #neuralnetworks #gradientdescent #datascience #mathanimation #learnai #stem
