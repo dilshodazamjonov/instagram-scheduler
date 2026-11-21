@@ -1,0 +1,8 @@
+Who gets a bigger say?
+
+A neuron multiplies each input by a weight, adds them up, and adds a bias. The weights decide how much each input counts; the bias shifts every score.
+
+Day 6 of 20: the basic components of deep learning.
+Next: activation functions
+
+#machinelearning #deeplearning #ai #neuralnetworks #datascience #mathanimation #learnai #stem #neuron #perceptron
