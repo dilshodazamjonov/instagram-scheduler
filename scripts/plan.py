@@ -43,7 +43,9 @@ def posted_on(day, history: list[dict]) -> bool:
 def first_free_day(now: datetime, history: list[dict]):
     """The first Tashkent day whose slot can still be used."""
     day = now.astimezone(TASHKENT).date()
-    if posted_on(day, history) or now > slot_on(day) + WINDOW:
+    if now > slot_on(day) + WINDOW:
+        day += timedelta(days=1)
+    while posted_on(day, history):  # skip days already used (posted or scheduled elsewhere)
         day += timedelta(days=1)
     return day
 
