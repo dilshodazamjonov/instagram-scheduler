@@ -11,13 +11,13 @@ This file is updated automatically.
 | 001-gradient-descent | posted | Fri 20 Nov 2026, 14:48 | [open](https://www.instagram.com/reel/Df9XeNeArhB/) |
 | 002-day02-learning-rate | posted | Fri 20 Nov 2026, 23:36 | [open](https://www.instagram.com/reel/Df-T-F0Dm9W/) |
 | 003-day03-backpropagation | posted | Sun 22 Nov 2026, 20:00 |  |
-| 004-day04-chain-rule | posted | Sun 22 Nov 2026, 20:00 |  |
-| 005-day05-inputs-tensors | posted | Mon 23 Nov 2026, 20:00 |  |
-| 006-day06-weights-bias | posted | Tue 24 Nov 2026, 20:00 |  |
-| 007-day07-activation-relu | posted | Wed 25 Nov 2026, 20:00 |  |
-| 008-day08-hidden-layers | posted | Thu 26 Nov 2026, 20:00 |  |
-| 009-day09-forward-pass | posted | Fri 27 Nov 2026, 20:00 |  |
-| 010-day10-logits-sigmoid | posted | Sat 28 Nov 2026, 20:00 |  |
+| 004-day04-chain-rule | scheduled in Business Suite | Sun 22 Nov 2026, 20:00 |  |
+| 005-day05-inputs-tensors | scheduled in Business Suite | Mon 23 Nov 2026, 20:00 |  |
+| 006-day06-weights-bias | scheduled in Business Suite | Tue 24 Nov 2026, 20:00 |  |
+| 007-day07-activation-relu | scheduled in Business Suite | Wed 25 Nov 2026, 20:00 |  |
+| 008-day08-hidden-layers | scheduled in Business Suite | Thu 26 Nov 2026, 20:00 |  |
+| 009-day09-forward-pass | scheduled in Business Suite | Fri 27 Nov 2026, 20:00 |  |
+| 010-day10-logits-sigmoid | scheduled in Business Suite | Sat 28 Nov 2026, 20:00 |  |
 | 011-day11-cross-entropy | queued | Sun 29 Nov 2026, 20:00 | with cover |
 | 012-day12-training-step | queued | Mon 30 Nov 2026, 20:00 | with cover |
 | 013-day13-batches-epochs | queued | Tue 01 Dec 2026, 20:00 | with cover |

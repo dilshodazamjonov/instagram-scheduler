@@ -64,7 +64,8 @@ def build(now: datetime | None = None) -> str:
     for h in history:
         when = datetime.fromisoformat(h["posted_at"]).astimezone(TASHKENT)
         link = f"[open]({h['permalink']})" if h.get("permalink") else ""
-        rows.append(f"| {h['folder']} | posted | {when:%a %d %b %Y, %H:%M} | {link} |")
+        status = "scheduled in Business Suite" if "scheduled" in str(h.get("media_id", "")) else "posted"
+        rows.append(f"| {h['folder']} | {status} | {when:%a %d %b %Y, %H:%M} | {link} |")
     day = first_free_day(now, history)
     for folder in queued(history):
         when = slot_on(day)
