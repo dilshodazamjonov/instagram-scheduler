@@ -21,6 +21,11 @@ def post_time() -> tuple[int, int]:
     return hh, mm
 
 
+def paused() -> bool:
+    """True when schedule.json says automatic posting is paused."""
+    return bool(json.loads((ROOT / "schedule.json").read_text()).get("paused"))
+
+
 def slot_on(day) -> datetime:
     """The posting moment on a Tashkent calendar day."""
     hh, mm = post_time()
@@ -64,9 +69,12 @@ def build(now: datetime | None = None) -> str:
         cover = "with cover" if (folder / "cover.jpg").exists() else ""
         rows.append(f"| {folder.name} | queued | {when:%a %d %b %Y, %H:%M} | {cover} |")
         day += timedelta(days=1)
+    note = (["**Automatic posting is paused** (schedule.json). The dates below are the planned days; "
+             "posts are scheduled in Meta Business Suite.", ""] if paused() else [])
     return "\n".join([
         "# Posting plan",
         "",
+        *note,
         f"One Reel a day at **{hh:02d}:{mm:02d} Tashkent time**. It usually goes out within a few minutes;",
         "if a day's post cannot go out within 3 hours, it moves to the next day. All times are Tashkent time.",
         "This file is updated automatically.",

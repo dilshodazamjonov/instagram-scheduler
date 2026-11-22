@@ -83,6 +83,9 @@ def main() -> None:
     if os.environ.get("NOW"):  # for testing, e.g. NOW=2026-11-21T20:07:00+05:00
         now = datetime.fromisoformat(os.environ["NOW"])
 
+    if plan.paused() and not os.environ.get("FORCE"):
+        log("Paused in schedule.json: posts are scheduled in Meta Business Suite. Nothing to do.")
+        return
     if not os.environ.get("FORCE"):
         today = now.astimezone(plan.TASHKENT).date()  # days follow the Tashkent calendar
         slot = plan.slot_on(today)
