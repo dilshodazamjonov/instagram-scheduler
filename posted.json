@@ -21,6 +21,42 @@
     "folder": "004-day04-chain-rule",
     "media_id": "scheduled in Meta Business Suite",
     "permalink": "",
+    "posted_at": "2026-11-22T20:00:00+05:00"
+  },
+  {
+    "folder": "005-day05-inputs-tensors",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
     "posted_at": "2026-11-23T20:00:00+05:00"
+  },
+  {
+    "folder": "006-day06-weights-bias",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
+    "posted_at": "2026-11-24T20:00:00+05:00"
+  },
+  {
+    "folder": "007-day07-activation-relu",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
+    "posted_at": "2026-11-25T20:00:00+05:00"
+  },
+  {
+    "folder": "008-day08-hidden-layers",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
+    "posted_at": "2026-11-26T20:00:00+05:00"
+  },
+  {
+    "folder": "009-day09-forward-pass",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
+    "posted_at": "2026-11-27T20:00:00+05:00"
+  },
+  {
+    "folder": "010-day10-logits-sigmoid",
+    "media_id": "scheduled in Meta Business Suite",
+    "permalink": "",
+    "posted_at": "2026-11-28T20:00:00+05:00"
   }
 ]
